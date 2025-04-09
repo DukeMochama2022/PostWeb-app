@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %} About {% endblock title %} 
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock page_styles %}
+
+
+{% block content %}
+
+<div class="blog-container">
+    <h2>Welcome to the Blog Page.</h2>
+
+    {% for post in posts %}
+    <div class="blog-card">
+        <h4 class="meta">By {{ post.author }} — {{ post.date_posted|date:"F d, Y" }}</h4>
+        <h3 class="title">{{ post.title }}</h3>
+        <p class="content">{{ post.content }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
+

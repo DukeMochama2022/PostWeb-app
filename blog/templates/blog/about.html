@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %} About {% endblock title %}
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock page_styles %}
+
+    {% block content %}
+    <h2>Welcome to the About Page.</h2>
+    {% endblock content %}
+    

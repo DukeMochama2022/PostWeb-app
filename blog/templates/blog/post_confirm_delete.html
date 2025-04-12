@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %} Create|blog {% endblock title %} 
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/confirm.css' %}">
+{% endblock page_styles %}
+
+
+{% block content %}
+<div class="profile-container">
+  <div class="auth-container">
+    <h2>Are you sure you want to delete Post-{{object.title}}</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="btns">
+        <a class="cancel" href="{% url 'blog:post-detail' object.id %}">Cancel</a>
+        <button class="delete" type="submit">Yes Delete</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}
+
+

@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %} About {% endblock title %} 
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock page_styles %}
+
+
+{% block content %}
+
+<div class="blog-container">
+    <h2>Blog Details</h2>
+    <div class="blog-card">
+        <img class="image" src="{{ object.author.profile.image.url }}" alt="profile">
+        <div>
+            <h4 class="meta">By {{ object.author }} — {{ object.date_posted|date:"F d, Y" }}</h4>
+            <h3 class="title"> {{ object.title }}</h3>
+            <p class="content">{{ object.content }}</p>
+            <div class="buttons">
+                {% if object.author == user %}
+                <a class="update" href="{% url 'blog:post-update' object.id %}">Update</a>
+                <a class="delete" href="{% url 'blog:post-delete' object.id %}">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+

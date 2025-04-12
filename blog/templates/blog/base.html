@@ -9,19 +9,83 @@
     {% block page_styles %} {% endblock page_styles %}
     <style>
         .containter{
-            width:100%;
+            width:90%;
             background-color:#f4f4f4;
-            padding:20px;
-            margin:20px auto;
+            margin:0 auto;
         }
+        .popup-messages {
+            position: fixed;
+            top: 40px;
+            right: 40%;
+            z-index: 1000;
+          }
+          
+          .popup-alert {
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            animation: slideIn 0.3s ease-out, fadeOut 0.5s ease-in 4s forwards;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          }
+          
+          .popup-alert.success {
+            background-color: #28a745;
+          }
+          
+          .popup-alert.error {
+            background-color: #dc3545;
+          }
+          
+          .popup-alert.warning {
+            background-color: #ffc107;
+            color: #333;
+          }
+          
+          @keyframes slideIn {
+            from {
+              opacity: 0;
+              transform: translateX(100%);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+          
+          @keyframes fadeOut {
+            to {
+              opacity: 0;
+              transform: translateY(-20px);
+              pointer-events: none;
+            }
+          }
+          
     </style>
 </head>
 <body>
     {% include 'blog/nav.html' %}
-
+{% if messages %}
+    <div class="popup-messages">
+      {% for message in messages %}
+        <div class="popup-alert {{ message.tags }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
     <div class="containter">
         {% block content %}{% endblock content %}
     </div>
-    
+    <script>
+        // Automatically remove the alert div after 5 seconds
+        setTimeout(() => {
+          document.querySelectorAll('.popup-alert').forEach(alert => {
+            alert.remove();
+          });
+        }, 5000);
+      </script>
+      
 </body>
 </html>

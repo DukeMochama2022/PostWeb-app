@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock page_styles %}
+
+{% block content %}
+<div class="profile-container">
+  <div class="profile-card">
+    <img src="{{ user.profile.image.url }}" alt="User Profile" class="profile-image">
+    <h2>{{ user.username|title }}</h2>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+    <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+  </div>
+
+  <div class="auth-container">
+    <h2>Profile info</h2>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ u_form.username.label_tag }}
+      {{ u_form.username }}
+
+      {{ u_form.email.label_tag }}
+      {{ u_form.email }}
+
+      {{ p_form.image.label_tag }}
+      {{ p_form.image }}
+      <button type="submit">Update</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

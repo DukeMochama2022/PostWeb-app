@@ -1,0 +1,34 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %} Register {% endblock title %} 
+
+{% block page_styles %}
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock page_styles %}
+
+
+{% block content %}
+<div class="auth-container">
+  <h2>Create an Account</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.username.label_tag }}
+    {{ form.username }}
+
+    {{ form.email.label_tag }}
+    {{ form.email }}
+
+    {{ form.password.label_tag }}
+    {{ form.password }}
+
+    {{ form.confirm_password.label_tag }}
+    {{ form.confirm_password }}
+
+    <button type="submit">Sign Up</button>
+  </form>
+  <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+</div>
+{% endblock content %}
+
+

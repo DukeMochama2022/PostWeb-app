@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color:#f8f9fa ;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.profile-card,
+.auth-container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  animation: fadeIn 0.5s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-card:hover,
+.auth-container:hover {
+  transform: translateY(-3px);
+}
+
+.profile-image {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3498db;
+  margin-bottom: 20px;
+}
+
+.profile-card h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.profile-card p {
+  font-size: 16px;
+  color: #555;
+  margin: 8px 0;
+}
+
+.logout-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Styling the update form */
+.auth-container h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container label {
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  color: #34495e;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container textarea,
+.auth-container input[type="file"] {
+  padding: 10px;
+  /* font-size: 16px; */
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.auth-container input:focus, .auth-container textarea{ 
+  border-color: #3498db;
+}
+
+
+
+.auth-container button[type="submit"] {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #2c3e50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"] .delete{
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #f05011;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+.cancel{
+  background-color: #555;
+  padding: 12px;
+}
+.auth-container .delete:hover{
+  background-color: #c0392b;
+}
+
+.btns{
+  display: flex;
+  justify-content: space-around;
+}
+.auth-container button[type="submit"]:hover {
+  background-color: #43596e;
+}
+

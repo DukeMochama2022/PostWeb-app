@@ -4,10 +4,30 @@
 {% block title %} About {% endblock title %}
 
 {% block page_styles %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
 {% endblock page_styles %}
 
     {% block content %}
-    <h2>Welcome to the About Page.</h2>
+    <div class="about-container">
+        <div class="about-content">
+          <h1>About This Blog</h1>
+          <p>
+            Welcome to <strong>My Blog</strong> — your cozy corner on the internet where we dive into ideas, stories, and creativity. 
+            This platform is designed to inspire, inform, and spark meaningful conversations across a variety of topics including 
+            technology, personal growth, lifestyle, and everything in between.
+          </p>
+          <p>
+            Whether you're here to read thoughtful articles, share your own experiences, or just explore something new, we're happy 
+            to have you. We believe in honest storytelling, learning by sharing, and making knowledge accessible to all.
+          </p>
+          <p>
+            Built with ❤️ using Django, this blog is part of a personal journey to grow as a developer and storyteller. Stick around, 
+            connect with us, and be part of the journey!
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="{% static 'images/about.jpg' %}" alt="About Us Image">
+        </div>
+      </div>
     {% endblock content %}
     

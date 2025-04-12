@@ -15,9 +15,12 @@
 
     {% for post in posts %}
     <div class="blog-card">
-        <h4 class="meta">By {{ post.author }} — {{ post.date_posted|date:"F d, Y" }}</h4>
-        <h3 class="title">{{ post.title }}</h3>
-        <p class="content">{{ post.content }}</p>
+        <img class="image" src="{{ post.author.profile.image.url }}" alt="profile">
+        <div>
+            <h4 class="meta">By {{ post.author }} — {{ post.date_posted|date:"F d, Y" }}</h4>
+            <h3 class="title"><a href="{% url 'blog:post-detail' post.id %}"> {{ post.title }}</a></h3>
+            <p class="content">{{ post.content }}</p>
+        </div>
     </div>
     {% endfor %}
 </div>

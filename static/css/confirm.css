@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color:#f8f9fa ;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+  }
+  
+  /* General container styling */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: #f8f9fa;
+  color: #fff;
+}
+
+/* Box styling */
+.auth-container {
+  background-color: #2f3640;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+}
+
+/* Confirmation text */
+.auth-container h2 {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  color: #f5f6fa;
+}
+
+/* Button container */
+.btns {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+/* Cancel and Delete buttons */
+.cancel, .delete {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel {
+  background-color: #718093;
+  color: white;
+  border: none;
+}
+
+.cancel:hover {
+  background-color: #57606f;
+}
+
+.delete {
+  background-color: #e84118;
+  color: white;
+  border: none;
+}
+
+.delete:hover {
+  background-color: #c23616;
+}

@@ -1,7 +1,7 @@
 
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -39,6 +40,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'  # Change to your main/home view name
 
 ROOT_URLCONF = 'posts.urls'
 
@@ -109,6 +114,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS=[
     BASE_DIR / 'static'
 ]
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+MEDIA_URL='/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
